@@ -1,4 +1,4 @@
-package br.com.base.service;
+package br.com.base.selecao.service;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import br.com.base.dto.CursoDTO;
-import br.com.base.dto.SelecionarUsuariosRequest;
+import br.com.base.curso.dto.CursoDTO;
+import br.com.base.curso.dto.SelecionarUsuariosRequest;
 
 @Service
 public class SelecaoAutomaticaService {

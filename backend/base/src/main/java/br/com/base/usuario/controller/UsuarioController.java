@@ -1,4 +1,4 @@
-package br.com.base.controller;
+package br.com.base.usuario.controller;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.base.dto.UsuarioDTO;
-import br.com.base.service.UsuarioService;
+import br.com.base.usuario.dto.UsuarioDTO;
+import br.com.base.usuario.service.UsuarioService;
 
 @RestController
 @RequestMapping("/api/usuarios")

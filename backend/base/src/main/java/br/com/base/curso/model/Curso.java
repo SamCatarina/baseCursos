@@ -1,7 +1,8 @@
-package br.com.base.model;
+package br.com.base.curso.model;
 
 import java.util.Set;
 
+import br.com.base.usuario.model.Usuario;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

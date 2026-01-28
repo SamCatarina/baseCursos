@@ -1,4 +1,4 @@
-package br.com.base.dto;
+package br.com.base.usuario.dto;
 
 import java.util.List;
 

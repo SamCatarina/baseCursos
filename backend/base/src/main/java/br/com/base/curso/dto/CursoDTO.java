@@ -1,4 +1,4 @@
-package br.com.base.dto;
+package br.com.base.curso.dto;
 
 import java.util.Set;
 

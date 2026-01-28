@@ -1,13 +1,13 @@
-package br.com.base.service;
+package br.com.base.usuario.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.base.dto.UsuarioDTO;
-import br.com.base.model.Curso;
-import br.com.base.model.Usuario;
-import br.com.base.repository.UsuarioRepository;
+import br.com.base.curso.model.Curso;
+import br.com.base.usuario.dto.UsuarioDTO;
+import br.com.base.usuario.model.Usuario;
+import br.com.base.usuario.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {

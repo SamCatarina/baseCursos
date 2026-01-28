@@ -1,4 +1,4 @@
-package br.com.base.service;
+package br.com.base.curso.service;
 
 import java.util.List;
 import java.util.Set;
@@ -6,23 +6,26 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import br.com.base.dto.CursoDTO;
-import br.com.base.dto.UsuarioDTO;
-import br.com.base.model.Curso;
-import br.com.base.model.Usuario;
-import br.com.base.repository.CursoRepository;
-import br.com.base.repository.UsuarioRepository;
+import br.com.base.curso.dto.CursoDTO;
+import br.com.base.curso.model.Curso;
+import br.com.base.curso.repository.CursoRepository;
+import br.com.base.event.service.CursoEventProducer;
+import br.com.base.usuario.dto.UsuarioDTO;
+import br.com.base.usuario.model.Usuario;
+import br.com.base.usuario.repository.UsuarioRepository;
 
 @Service
 public class CursoService {
 
     private final CursoRepository cursoRepository;
     private final UsuarioRepository usuarioRepository;
+    private final CursoEventProducer cursoEventProducer;
 
     public CursoService(CursoRepository cursoRepository,
-            UsuarioRepository usuarioRepository) {
+            UsuarioRepository usuarioRepository, CursoEventProducer cursoEventProducer) {
         this.cursoRepository = cursoRepository;
         this.usuarioRepository = usuarioRepository;
+        this.cursoEventProducer = cursoEventProducer;
     }
 
     // 🔹 LISTAR
@@ -65,6 +68,8 @@ public class CursoService {
 
         curso.getInscritos().add(usuario);
         cursoRepository.save(curso);
+
+        cursoEventProducer.enviarEmailInscricao(cursoId, usuarioId);
     }
 
     // 🔹 SELEÇÃO
@@ -84,6 +89,12 @@ public class CursoService {
         curso.getSelecionados().addAll(usuarios);
 
         cursoRepository.save(curso);
+
+        // Enviar email para cada usuário selecionado
+        for (Long usuarioId : usuarioIds) {
+            cursoEventProducer.enviarEmailSelecao(cursoId, usuarioId);
+        }
+
     }
 
     // 🔹 CONVERSÃO

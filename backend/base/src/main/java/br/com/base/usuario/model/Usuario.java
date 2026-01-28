@@ -1,8 +1,9 @@
-package br.com.base.model;
+package br.com.base.usuario.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.base.curso.model.Curso;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,6 +25,9 @@ public class Usuario {
 
     @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(nullable = false)
+    private String senha;
 
     @ManyToMany(mappedBy = "inscritos")
     private List<Curso> cursosInscritos = new ArrayList<>();
@@ -70,5 +74,13 @@ public class Usuario {
 
     public void setCursosSelecionados(List<Curso> cursosSelecionados) {
         this.cursosSelecionados = cursosSelecionados;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

@@ -1,4 +1,4 @@
-package br.com.base.controller;
+package br.com.base.curso.controller;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.base.dto.CursoDTO;
-import br.com.base.dto.SelecionarUsuariosRequest;
-import br.com.base.service.CursoService;
+import br.com.base.curso.dto.CursoDTO;
+import br.com.base.curso.dto.SelecionarUsuariosRequest;
+import br.com.base.curso.service.CursoService;
 
 @RestController
 @RequestMapping("/api/cursos")

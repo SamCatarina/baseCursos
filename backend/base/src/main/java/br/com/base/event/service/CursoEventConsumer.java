@@ -10,7 +10,7 @@ public class CursoEventConsumer {
 
     @PostConstruct
     public void init() {
-        System.out.println("🔥 CursoEventConsumer CARREGADO");
+        System.out.println("CursoEventConsumer CARREGADO");
     }
 
     @KafkaListener(
@@ -18,7 +18,7 @@ public class CursoEventConsumer {
             groupId = "email-service"
     )
     public void consumir(String mensagem) {
-        System.out.println("📩 MENSAGEM RECEBIDA:");
+        System.out.println("MENSAGEM RECEBIDA:");
         System.out.println(mensagem);
     }
 }
